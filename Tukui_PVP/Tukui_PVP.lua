@@ -7,18 +7,30 @@ local Label = KILLS
 local OnEnter = function(self)
 	GameTooltip:SetOwner(self:GetTooltipAnchor())
 	
-	local Honorable, Dishonorable = GetPVPLifetimeStats()
+	local HK, DK = GetPVPSessionStats()
 	local Rank = UnitPVPRank("player")
 	
 	if (Rank > 0) then
 		local Name, Number = GetPVPRankInfo(Rank, "player")
 		
-		GameTooltip:AddDoubleLine(Name, format("%s %s", RANK, Number))
-		GameTooltip:AddLine(" ")
+		DT.tooltip:AddDoubleLine(Name, format("%s %s", RANK, Number))
+		DT.tooltip:AddLine(" ")
 	end
 	
-	GameTooltip:AddDoubleLine(HONORABLE_KILLS, T.Comma(Honorable), 1, 1, 1, 1, 1, 1)
-	GameTooltip:AddDoubleLine(DISHONORABLE_KILLS, T.Comma(Dishonorable), 1, 1, 1, 1, 1, 1)
+	if (HK > 0) then
+		DT.tooltip:AddLine(HONOR_TODAY)
+		DT.tooltip:AddDoubleLine(HONORABLE_KILLS, T.Comma(HK), 1, 1, 1, 1, 1, 1)
+		DT.tooltip:AddDoubleLine(DISHONORABLE_KILLS, T.Comma(DK), 1, 1, 1, 1, 1, 1)
+		DT.tooltip:AddLine(" ")
+	end
+	
+	HK, DK = GetPVPLifetimeStats()
+	
+	if (HK > 0) then
+		DT.tooltip:AddLine(HONOR_LIFETIME)
+		DT.tooltip:AddDoubleLine(HONORABLE_KILLS, T.Comma(HK), 1, 1, 1, 1, 1, 1)
+		DT.tooltip:AddDoubleLine(DISHONORABLE_KILLS, T.Comma(DK), 1, 1, 1, 1, 1, 1)
+	end
 	
 	GameTooltip:Show()
 end
