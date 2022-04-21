@@ -2,7 +2,7 @@ local T, C, L = Tukui:unpack()
 
 local DataText = T["DataTexts"]
 local GetPVPLifetimeStats = GetPVPLifetimeStats
-local Label = KILLS
+local KILLS = KILLS
 
 local OnEnter = function(self)
 	GameTooltip:SetOwner(self:GetTooltipAnchor())
@@ -44,7 +44,7 @@ local OnMouseUp = function()
 end
 
 local Update = function(self)
-	self.Text:SetFormattedText("%s%s:|r %s%s|r", DataText.NameColor, Label, DataText.ValueColor, T.Comma(GetPVPLifetimeStats()))
+	self.Text:SetFormattedText("%s%s:|r %s%s|r", DataText.NameColor, KILLS, DataText.ValueColor, T.Comma(GetPVPLifetimeStats()))
 end
 
 local Enable = function(self)
