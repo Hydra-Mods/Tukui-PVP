@@ -1,4 +1,4 @@
-## Interface: 20504
+## Interface: 30400
 ## Title: |cffff8000Tukui|r PVP
 ## Version: 1.12
 ## Notes: Create a data text to display PVP information
