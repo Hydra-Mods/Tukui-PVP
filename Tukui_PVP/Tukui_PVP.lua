@@ -40,7 +40,13 @@ local OnLeave = function()
 end
 
 local OnMouseUp = function()
-	ToggleCharacter("HonorFrame")
+	if T.Classic then
+		ToggleCharacter("HonorFrame")
+	elseif T.WotLK then
+		TogglePVPFrame()
+	else
+		ToggleCharacter("PVPFrame")
+	end
 end
 
 local Update = function(self)
