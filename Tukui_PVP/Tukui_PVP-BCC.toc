@@ -1,6 +1,6 @@
 ## Interface: 20504
 ## Title: |cffff8000Tukui|r PVP
-## Version: 1.15
+## Version: 1.16
 ## Notes: Create a data text to display PVP information
 ## Author: Hydra
 ## RequiredDeps: Tukui
