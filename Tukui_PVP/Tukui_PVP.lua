@@ -58,6 +58,7 @@ end
 
 local Enable = function(self)
 	self:RegisterEvent("PLAYER_PVP_KILLS_CHANGED")
+	self:RegisterEvent("PLAYER_ENTERING_WORLD")
 	self:SetScript("OnEvent", Update)
 	self:SetScript("OnEnter", OnEnter)
 	self:SetScript("OnLeave", OnLeave)
@@ -68,6 +69,7 @@ end
 
 local Disable = function(self)
 	self:UnregisterEvent("PLAYER_PVP_KILLS_CHANGED")
+	self:UnregisterEvent("PLAYER_ENTERING_WORLD")
 	self:SetScript("OnEvent", nil)
 	self:SetScript("OnEnter", nil)
 	self:SetScript("OnLeave", nil)
